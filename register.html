@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    	<title>Expense calculator</title>
+    	<link rel="stylesheet" type="text/css" href="register.css"/>
+    	<meta charset="utf-8">
+    </head>
+    
+    <body>
+        <section id='register-form'>
+        <div class="form">
+            <div class="logo">
+                <img src="images/logo.png"/>
+            </div>
+          
+            <form name="Register">
+                <h2>Register</h2>
+                <label><input type="email" name="user" placeholder="First Name" required /></label>
+                <label><input type="email" name="user" placeholder="Last Name" required /></label>
+                <label><input type="email" name="user" placeholder="E-mail" required /></label>
+                <label><input type="text" name="user" placeholder="Username" required /></label>
+                <label><input type="password" name="user" pattern=".* .*" placeholder="Password" required /></label>
+                <label><input type="password" name="user" pattern=".* .*" placeholder="Retype Password" required /></label>
+                
+                <div class="submit">
+                    <input type="submit" onclick="user_register()" value="Register" >
+                </div>
+            </form>
+    
+        </div>
+        </section>
+    </body>
+</html>

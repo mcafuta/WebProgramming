@@ -3,47 +3,100 @@
 <html>
    <head>
       	<meta charset="utf-8">
-	    <link rel="stylesheet" type="text/css" href="style.css">
+        <script type='text/javascript' > 
+          var uname = ""; 
+        </script>
+	    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    	<link rel="stylesheet" type="text/css" href="css/login.css"/>
+    	<link rel="stylesheet" type="text/css" href="css/register.css"/>
+    	<script type="text/javascript" src="js/main.js"></script>
       	<title>Expense calculator</title>
    </head>
    
    <body>
         <header>
-            <a id ="login-reg" class="button" href="#">LogIn / Registration </a>
-            
+            <button onclick=show_login()>Login / Register</button>
             <h1>Expense Calculator</h1>
             
         </header>
-        <div class="container">  
+        <div class="container" id = 'main'>  
             <div class="main">
-                <h3>Welcome to the page that will change your spending habits!</h3>
-                <div id = 'features'>    
-                    <div class = 'column'>
+                <h2>Welcome to the page that will change your spending habits!</h2>
+                <section id = 'features'>    
+                    <article class = 'column'>
                         <h5>Never run out of money again! </h5>
                         <p>Track your expenses/income so that you know how much money you have left at all times</p>
                         <div class = 'img-single'>
-                            <img src="/images/track1.png"></img>
+                            <img src="/images/track1.png" alt="track-balance">
                         </div>
-                    </div>
-                    <div class = 'column'>
+                    </article>
+                    <article class = 'column'>
                         <h5>Reports, Graphs</h5>
                         <p>See the statistics for past week, month, year... Now you'll know exactly which products you spend the most on</p>
                         <div class = 'img-double'>
-                            <img src="/images/graph1.JPG"></img>
-                            <img src="/images/graph2.JPG"></img>
+                            <img src="/images/graph1.JPG" alt="graph-month">
+                            <img src="/images/graph2.JPG" alt="graph-cat">
                         </div>
                         
-                    </div>
-                    <div class= 'column'>
+                    </article>
+                    <article class= 'column'>
                         <h5>Set a goal</h5>
                         <p>Want to buy a car? Travel around the world? Set a goal today and start saving</p>
                         <div class = 'img-single'>
-                            <img src="/images/pige.jpg"></img>
+                            <img src="/images/pige.jpg" alt="piggy-bank">
                         </div>
+                    </article>
+                </section>
+                
+                <section id='login-form'>
+                    <div class="form">
+                        <div class="logo">
+                            <img src="images/logo.png" alt="logo"/>
+                        </div>
+                      
+                        <form method="post" name="Login" action="/home.php">
+                            <h2>Log in</h2>
+                            <label><input type="text" name="user" placeholder="Username" required /></label>
+                            <label><input type="password" name="pwd" placeholder="Password" required /></label>
+                            
+                            <div class="submit">
+                                <button type="submit">Login</button>
+                            </div>
+                            <div>
+                              <p>Don't have an account yet? 
+                              </p>
+                              <a onclick=show_reg() class="register"> Register</a>
+                            </div>
+                        </form>
+                
                     </div>
-                </div>
+                </section>
+                
+                <section id='register-form'>
+                    <div class="form">
+                        <div class="logo">
+                            <img src="images/logo.png" alt="logo"/>
+                        </div>
+                      
+                        <form method='post' name="Register" action="/home.php">
+                            <h2>Register</h2>
+                            <label><input type="text" name="fname" placeholder="First Name" required /></label>
+                            <label><input type="text" name="lname" placeholder="Last Name" required /></label>
+                            <label><input type="email" name="mail"  placeholder="E-mail" required /></label>
+                            <label><input type="text" name="user" placeholder="Username" required /></label>
+                            <label><input type="password" name="pwd"  placeholder="Password" required /></label>
+                            <label><input type="password" name="pwd"  placeholder="Retype Password" required /></label>
+                            
+                            <div class="submit">
+                                <button type="submit">Register</button>
+                            </div>
+                        </form>
+                
+                    </div>
+                </section>
             </div>
         </div>
+        <footer></footer>
        
    </body>
 </html>

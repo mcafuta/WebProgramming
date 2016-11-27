@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+
+<html>
+   <head>
+      	<meta charset="utf-8">
+	    <link rel="stylesheet" type="text/css" href="css/budget_expenses.css">
+    	<script type="text/javascript" src="js/be.js"></script>
+      	<title>Expense calculator</title>
+   </head>
+   
+   <body>
+        <header>
+            <nav id="top-bar">
+                <ul>
+                  <li><a href="home.html">Home</a></li>
+                  <li><a href="goals.html">Goals</a></li>
+                  <li><a href="budget_expenses.html">Budget&Expenses</a></li>
+                  <li id ='logged-in-as'><a href="index.html">Log out</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div class="container" id = 'main'>  
+            
+            
+            <div class="main">
+                <section class="main-centered">
+                    
+                    <article class="current-balance">
+						<!--<h3>Current financial situation</h3>-->
+						<table id="spreadsheet">
+                            <thead>
+                                <tr>
+                                    <th>Income</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tr id='salary'>
+                                <td>Salary</td>
+                                <td></td>
+                            </tr>
+                            <tr id='scholarship'>
+                                <td>Scholarship</td>
+                                <td></td>
+                            </tr>
+                            <tr id='bonus'>
+                                <td>Bonus</td>
+                                <td></td>
+                            </tr>
+                            <tr id='other-inc'>
+                                <td>Other</td>
+                                <td></td>
+                            </tr>
+                            <tr id='total-inc'>
+                                <td class ='total'>Total</td>
+                                <td class ='total'></td>
+                            </tr>
+                                <tr>
+                                    <th>Expense</th>
+                                    <th></th>
+                                </tr>
+                            <tr id='food'>
+                                <td>Food</td>
+                                <td></td>
+                            </tr>
+                            <tr id='car'>
+                                <td>Car</td>
+                                <td></td>
+                            </tr>
+                            <tr id='home'>
+                                <td>Home</td>
+                                <td></td>
+                            </tr>
+                            <tr id='health'>
+                                <td>Health</td>
+                                <td></td>
+                            </tr>
+                            <tr id='clothes'>
+                                <td>Clothes</td>
+                                <td></td>
+                            </tr>
+                            <tr id='sport'>
+                                <td>Sport</td>
+                                <td></td>
+                            </tr>
+                            <tr id='other-exp'>
+                                <td>Other</td>
+                                <td></td>
+                            </tr>
+                            <tr id='total-exp'>
+                                <td class ='total'>Total</td>
+                                <td class ='total'></td>
+                            </tr>
+                        </table>
+                    </article>
+                    <article class="details">
+                        <button onclick='detailed_view()'>Show detailed view</button>
+                    </article>
+					<article class="add-io">
+						<h3>Add income/expense</h3>
+						<form name='in-out' method='post' onsubmit="add_trans(); return false">
+						    
+						    <p>Amount ($):
+							<input type="number" placeholder=0 min=0 step=0.01 name="amount" required></p>
+							<p>Description:
+							<input type="text" value=""  name="description" required></p>
+							<p>Date: 
+							<input type="date" name="date" required></p>
+						    <p>Choose type of transaction: </p>
+							<input type="radio" name="radioTr" onclick=transaction_type(0) value="income" required>Income
+						    <input type="radio" name="radioTr" onclick=transaction_type(1) value="expense" required>Expense
+							
+							<p>Category:
+							<select id="expense-category" name='category' disabled required>
+							    <option value="" disabled selected>Select category</option>
+								<option value="food">food</option>
+								<option value="car">car</option>
+								<option value="home">home</option>
+								<option value="health">health</option>
+								<option value="clothes">clothes</option>
+								<option value="sport">sport</option>
+								<option value="other">other</option>
+							</select>
+							<select id="income-category" name='category' style='display:none' disabled required>
+							    <option value="" disabled selected>Select category</option>
+								<option value="salary">salary</option>
+								<option value="scholarship">scholarship</option>
+								<option value="bonus">bonus</option>
+								<option value="other">other</option>
+							</select>
+							</p>
+							<!--<input type="submit" onclick="add_trans()" onsubmit="false" value="Add" >-->
+							<!--<button class="add" onclick=add_trans()>Add</button>-->
+							<div class="submit">
+                                <!--<input type='button' onclick="add_trans()" value="Add" >-->
+                                    <input type='submit'  value="Add" >
+                            </div>
+
+						</form>
+				    </article>
+				    
+				</section>
+					
+			</div>
+			
+		</div>	
+       
+   </body>
+</html>

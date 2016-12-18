@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<?php
+    $varUser = $_POST['user'];
+    $varPwd = $_POST['pwd'];
+    
+    //if exists user --> login
+    //else create user --> register
+    
+    class User{
+        private $usertname;
+        private $password;
+        
+        public function __construct(String $un, String $pwd ){
+          $this->username = $un;
+          $this->password = $pwd;
+       }
+    }
+    
+    class Profile{
+        private $firstname;
+        private $lastname;
+        private $username;
+        private $email;
+        private $password;
+        
+        public function __construct(String $fn, String $ln, String $un, String $email, String $pwd ){
+          $this->firstname = $fn;
+          $this->lastname = $ln;
+          $this->username = $un;
+          $this->email = $email;
+          $this->password = $pwd;
+       }
+    }
+    
+    
+    
+
+?>
+<html>
+   <head>
+      	<meta charset="utf-8">
+	    <link rel="stylesheet" type="text/css" href="css/style.css" />
+	    <link rel="stylesheet" href="css/budget_expenses.css" type="text/css" />
+    	<script type="text/javascript" src="js/main.js"></script>
+      	<title>Expense calculator</title>
+   </head>
+   
+   <body>
+        <header>
+            <nav id="top-bar">
+                <ul>
+                  <li><a href="home.html">Home</a></li>
+                  <li><a href="goals.html">Goals</a></li>
+                  <li><a href="budget_expenses.html">Budget&Expenses</a></li>
+                  <li id ='logged-in-as'>Logged in as <?=$varUser;?></li>
+                </ul>
+            </nav>
+            <h1>Expense Calculator</h1>
+            
+        </header>
+        <div class="container" id = 'main'>  
+            <div class="main">
+                <h3>Welcome to the page that will change your spending habits!</h3>
+                <section id = 'features'>    
+                    <article class = 'column'>
+                        <h5>Never run out of money again! </h5>
+                        <p>Track your expenses/income so that you know how much money you have left at all times</p>
+                        <div class = 'img-single'>
+                            <img src="/images/track1.png" alt="track-balance">
+                        </div>
+                    </article>
+                    <article class = 'column'>
+                        <h5>Reports, Graphs</h5>
+                        <p>See the statistics for past week, month, year... Now you'll know exactly which products you spend the most on</p>
+                        <div class = 'img-double'>
+                            <img src="/images/graph1.JPG" alt="graph-month">
+                            <img src="/images/graph2.JPG" alt="graph-cat">
+                        </div>
+                        
+                    </article>
+                    <article class= 'column'>
+                        <h5>Set a goal</h5>
+                        <p>Want to buy a car? Travel around the world? Set a goal today and start saving</p>
+                        <div class = 'img-single'>
+                            <img src="/images/pige.jpg" alt="piggy-bank">
+                        </div>
+                    </article>
+                </section>
+            </div>
+        </div>
+       
+   </body>
+</html>

@@ -17,7 +17,7 @@ class StatusController extends Controller
      */
     public function index(Request $request)
     {
-        $statuses = Status::where('user_id', $request->user()->id)->byDate()->get();
+        $statuses = Status::mine($request)->byDate()->get();
 
         return view('statuses.index', compact('statuses'));
     }
@@ -41,7 +41,7 @@ class StatusController extends Controller
      */
     public function store(StatusRequest $request)
     {
-        Status::create(array_merge($request->all(), [ 'user_id' => $request->user()->id ]));
+        $request->user()->statuses()->create($request->all());
 
         return redirect('statuses');
     }

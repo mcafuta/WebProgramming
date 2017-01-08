@@ -19,15 +19,15 @@ class StatusRequest extends FormRequest
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array
+     * @return array2345
      */
     public function rules()
     {
         return [
             'name'     => 'required|string',
             'value'    => 'required|numeric',
-            'due_date' => 'required|date|after:yesterday',
-            'type'     => 'required|in:income,expense'
+            'due_date' => 'required_if:type,goal|date|after:yesterday',
+            'type'     => 'required|in:income,expense,goal'
         ];
     }
 }

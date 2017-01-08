@@ -58,11 +58,14 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                                aria-expanded="false">
-                                {{ Auth::user()->name }} <span
+                                {{ Auth::user()->name }} @if(Auth::user()->isAdmin()) (admin) @endif <span
                                         class="caret"></span>
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
+                                @if(Auth::user()->isAdmin())
+                                    <li><a href="{{ url('/admin/users') }}">@lang('application.overview')</a></li>
+                                @endif
                                 <li>
                                     <a href="{{ url('/logout') }}"
                                        onclick="event.preventDefault();
@@ -84,6 +87,11 @@
     </nav>
 
     @yield('content')
+    <footer class="container text-center">
+        <div class="col-xs-12">
+            <a href="{{ url('/locale/en') }}">Eng</a> | <a href="{{ url("/locale/sl") }}">Slo</a>
+        </div>
+    </footer>
 </div>
 
 <!-- Scripts -->

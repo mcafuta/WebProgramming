@@ -13,6 +13,8 @@
     {!! Form::radio('type', 'income') !!}
     {!! Form::label('name', trans('application.expense')) !!}
     {!! Form::radio('type', 'expense') !!}
+    {!! Form::label('name', trans('application.goal')) !!}
+    {!! Form::radio('type', 'goal') !!}
 </div>
 <div class='form-group'>
     {!! Form::label('name', trans('application.entryDue')) !!}

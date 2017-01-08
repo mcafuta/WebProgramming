@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
 
 class Status extends Model
 {
@@ -17,11 +18,21 @@ class Status extends Model
 
     public function scopeByDate($query)
     {
-        return $query->orderBy('due_date', 'ASC');
+        return $query->orderBy('created_at', 'ASC');
+    }
+
+    public function scopeMine($query, Request $request)
+    {
+        return $query->where('user_id', $request->user()->id);
     }
 
     public function getDueDateAttribute()
     {
         return $this->attributes['due_date'];
+    }
+
+    public function expired()
+    {
+        return \Carbon\Carbon::parse($this->due_date)->isPast();
     }
 }

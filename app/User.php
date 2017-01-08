@@ -35,4 +35,14 @@ class User extends Authenticatable
     {
         return $this->hasMany(Status::class);
     }
+
+    public function statusesOrdered()
+    {
+        return $this->hasMany(Status::class)->byDate();
+    }
+
+    public function isAdmin()
+    {
+        return $this->admin == true;
+    }
 }

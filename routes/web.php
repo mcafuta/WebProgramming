@@ -21,7 +21,7 @@ Route::get('locale/{locale}', function($locale) {
     return redirect()->back();
 });
 
-Auth::routes();
+Auth::routes(); // Naredi laravel php artisan make:auth
 
 Route::group([ 'middleware' => 'auth' ], function() {
     Route::resource('statuses', 'StatusController', [ 'except' => [ 'show' ] ]);

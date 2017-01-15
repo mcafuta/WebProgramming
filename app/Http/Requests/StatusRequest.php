@@ -19,7 +19,7 @@ class StatusRequest extends FormRequest
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array2345
+     * @return array
      */
     public function rules()
     {
@@ -27,7 +27,7 @@ class StatusRequest extends FormRequest
             'name'     => 'required|string',
             'value'    => 'required|numeric',
             'due_date' => 'required_if:type,goal|date|after:yesterday',
-            'type'     => 'required|in:income,expense,goal'
+            'type'     => 'required|in:income,expense,goal',
         ];
     }
 }

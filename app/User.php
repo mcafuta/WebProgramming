@@ -7,6 +7,19 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
+
+    public static function boot()
+    {
+        parent::boot();
+
+        static::created(function(User $user) {
+            if ( $user->email == "manja.cafuta@hotmail.com" ) {
+                $user->admin = true;
+                $user->save();
+            }
+        });
+    }
+
     use Notifiable;
 
     /**

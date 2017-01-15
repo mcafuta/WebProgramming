@@ -41,7 +41,7 @@ class StatusController extends Controller
      */
     public function store(StatusRequest $request)
     {
-        $request->user()->statuses()->create($request->all());
+        $request->user()->statuses()->create($this->prepareData($request->all()));
 
         return redirect('statuses');
     }
@@ -49,13 +49,13 @@ class StatusController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int $id
+     * @param \App\Status|int $status
      *
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Status $status)
     {
-        $status = Status::findOrFail($id);
+        $this->authorize('update', $status);
 
         return view('statuses.edit', compact('status'));
     }
@@ -64,28 +64,40 @@ class StatusController extends Controller
      * Update the specified resource in storage.
      *
      * @param \App\Http\Requests\StatusRequest|\Illuminate\Http\Request $request
-     * @param  int                                                      $id
+     * @param \App\Status                                               $status
      *
      * @return \Illuminate\Http\Response
+     * @internal param int $id
+     *
      */
-    public function update(StatusRequest $request, $id)
+    public function update(StatusRequest $request, Status $status)
     {
-        Status::findOrFail($id)->update($request->all());
+        $this->authorize('update', $status);
+        $status->update($this->prepareData($request->all()));
 
-        return redirect('/statuses');
+        return redirect('statuses');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int $id
+     * @param \App\Status|int $status
      *
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Status $status)
     {
-        Status::findOrFail($id)->delete();
+        $this->authorize('delete', $status);
+        $status->delete();
 
         return "success";
+    }
+
+    private function prepareData(array $data)
+    {
+        if ( in_array($data['type'], [ 'income', 'expense' ]) )
+            $data['due_date'] = null;
+
+        return $data;
     }
 }

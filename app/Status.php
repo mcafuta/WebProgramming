@@ -9,8 +9,6 @@ class Status extends Model
 {
     protected $fillable = [ 'name', 'type', 'value', 'user_id', 'due_date' ];
 
-    protected $dates = [ 'due_date' ];
-
     public function user()
     {
         return $this->belongsTo(User::class);
@@ -18,17 +16,12 @@ class Status extends Model
 
     public function scopeByDate($query)
     {
-        return $query->orderBy('created_at', 'ASC');
+        return $query->orderBy('created_at', 'DESC');
     }
 
     public function scopeMine($query, Request $request)
     {
         return $query->where('user_id', $request->user()->id);
-    }
-
-    public function getDueDateAttribute()
-    {
-        return $this->attributes['due_date'];
     }
 
     public function expired()

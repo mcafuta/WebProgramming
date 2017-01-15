@@ -10,6 +10,7 @@ return [
     'expense'          => 'Odhodek',
     'goal'             => 'Cilj',
     'newExpense'       => 'Dodaj nov vnos',
+    'editExisting'     => 'Uredi obstoječ vnos',
     'overview'         => 'Pregled uporabnikov',
     'admin'            => 'Nadzorna plošča',
     'detailedOverview' => 'Podroben pregled uporabnika',

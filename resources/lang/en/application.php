@@ -10,6 +10,7 @@ return [
     'expense'          => 'Expense',
     'goal'             => 'Goal',
     'newExpense'       => 'Add new entry',
+    'editExisting'     => 'Edit entry',
     'overview'         => 'Users overview',
     'admin'            => 'Admin panel',
     'detailedOverview' => 'Detailed user overview',

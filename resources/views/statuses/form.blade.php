@@ -9,11 +9,11 @@
 <div class='form-group'>
     {!! Form::label('name', trans('application.entryType')) !!}
     <br>
-    {!! Form::label('name', trans('application.income')) !!}
+    {!! Form::label('type', trans('application.income')) !!}
     {!! Form::radio('type', 'income') !!}
-    {!! Form::label('name', trans('application.expense')) !!}
+    {!! Form::label('type', trans('application.expense')) !!}
     {!! Form::radio('type', 'expense') !!}
-    {!! Form::label('name', trans('application.goal')) !!}
+    {!! Form::label('type', trans('application.goal')) !!}
     {!! Form::radio('type', 'goal') !!}
 </div>
 <div class='form-group'>

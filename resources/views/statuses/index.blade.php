@@ -23,10 +23,15 @@
                                     <span class="label label-danger">@lang('application.expense')</span>
                                 @endif
                                 <div class="pull-right">
-                                    <a href="{{ action('StatusController@edit', $status->id) }}"
-                                       class="text-primary">@lang('application.edit')</a>
-                                    <span class="pointer text-danger"
-                                          onclick="deleteStatus({{ $status->id }});">@lang('application.delete')</span>
+                                    @can('update', $status)
+                                        <a href="{{ action('StatusController@edit', $status->id) }}"
+
+                                           class="text-primary">@lang('application.edit')</a>
+                                    @endcan
+                                    @can('delete', $status)
+                                        <span class="pointer text-danger"
+                                              onclick="deleteStatus({{ $status->id }});">@lang('application.delete')</span>
+                                    @endcan
                                 </div>
                             </div>
 

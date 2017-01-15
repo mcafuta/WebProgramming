@@ -11,7 +11,7 @@
 
                     <div class="panel-body">
                         {!! Form::model($status, ['action' => ['StatusController@update', $status->id], 'method' => 'PATCH']) !!}
-                        @include('statuses.form', ['text' => 'Edit entry'])
+                        @include('statuses.form', ['text' => trans('application.editExisting')])
                         {!! Form::close() !!}
                     </div>
                 </div>
